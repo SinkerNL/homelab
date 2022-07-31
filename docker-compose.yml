@@ -1,6 +1,20 @@
 version: '3'
 
 services:
+  reverse:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    container_name: nginx
+    hostname: reverse
+    image: nginx
+    ports:
+      - 80:80
+      - 443:443
+    #volumes:
+    #  - ~/docker-data/reverse:/etc/nginx
+        
   portainer:
     build:
       context: ./portainer
