@@ -6,7 +6,7 @@ For this example, we'll use the password `superpassword`.
 
 Use the following command to generate a hash for the password:
 
-`docker run --rm httpd:2.4-alpine htpasswd -nbB admin 'superpassword' cut -d ":" -f 2`
+`docker run --rm httpd:2.4-alpine htpasswd -nbB admin 'superpassword' | cut -d ":" -f 2`
 
 The output of that command is the hased password, it should be something similar to: `$2y$05$n39a5QBx2Ayz6jiGnmgspOPSx38z5RQMYGGYlQt6IecARu2NA8eYO`.
 
