@@ -27,3 +27,18 @@ services:
       - ~/docker-data/portainer:/data
     ports:
       - 9000:9000
+
+  gitlab:
+    build:
+      context: ./gitlab
+      dockerfile: Dockerfile
+    container_name: gitlab
+    restart: always
+    volumes:
+      - ~/docker-data/gitlab/gitlab_config:/etc/gitlab
+      - ~/docker-data/gitlab/gitlab_logs:/var/log/gitlab
+      - ~/docker-data/gitlab/gitlab_data:/var/opt/gitlab
+    ports:
+      - 8080:80
+      - 1001:22
+      - 8143:443
